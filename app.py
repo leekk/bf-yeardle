@@ -60,7 +60,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: url("_.jpeg");
+        background-image: url("https://github.com/leekk/bf-yeardle/blob/main/_.jpeg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
