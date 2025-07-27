@@ -25,7 +25,7 @@ if st.button("Submit"):
     if guess != event["year"]:
          if st.session_state.attempts == 6:
             st.session_state.message = f"Boo loser. It was {event["year"]}."
-# I want to make the button say "continue", or at least another button appear
+            # I want to make the button say "continue", or at least another button appear
             st.session_state.target = random.choice(events)
             st.session_state.attempts = 0
             st.session_state.score -= 1
