@@ -19,7 +19,8 @@ st.title("My boyfriend guesses years")
 st.subheader(f"guess.")
 st.markdown(f"**{event['event']}**")
 
-   """if st.session_state.attempts == 6:
+"""
+if st.session_state.attempts == 6:
             st.session_state.message = f"Boo loser. It was {event["year"]}."
             st.session_state.target = random.choice(events)
             st.session_state.attempts = 0
