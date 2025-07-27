@@ -2,7 +2,6 @@ import streamlit as st
 import random
 import json
 
-# Load events
 with open("events.json", "r") as f:
     events = json.load(f)
 
@@ -12,26 +11,44 @@ if "target" not in st.session_state:
     st.session_state.target = event
     st.session_state.attempts = 0
     st.session_state.message = ""
+    st.session_state.score = 0
 
 event = st.session_state.target
 
 st.title("My boyfriend guesses years")
-st.subheader(f"What year did this happen?")
-st.markdown(f"**🗓️ {event['event']}**")
+st.subheader(f"guess.")
+st.markdown(f"**{event['event']}**")
 
 guess = st.number_input("Your guess (year):", min_value=0, max_value=2100, step=1)
 if st.button("Submit"):
     st.session_state.attempts += 1
-    if guess < event["year"]:
-        st.session_state.message = "📉 Too early!"
-    elif guess > event["year"]:
-        st.session_state.message = "📈 Too late!"
+    if st.session_state.attempts == 7:
+        st.session_state.message = "Boo loser"
+        st.session_state.target = random.choice(events)
+        st.session_state.attempts = 0
+        st.session_state.score -= 1
+        st.session_state.message = ""
+    if guess != event["year"]:
+        gap = abs(event["year"] - guess)
+        if gap > 200:
+            st.session_state.message = "200+ years off."
+        elif gap > 40
+            st.session_state.message = "41-200 years off."
+        elif gap > 10:
+            st.session_state.message = "11-40 years off."
+        elif gap > 2:
+            st.session_state.message = "3-10 years off."
+        else:
+            st.session_state.message = "1-2 years off."
     else:
-        st.session_state.message = f"✅ Correct! It happened in {event['year']}."
+        st.session_state.message = "Nice. You get 2 points for being cute."
+        st.session_state.score += 2
+
 st.write(st.session_state.message)
 st.write(f"Attempts: {st.session_state.attempts}")
 
-if st.button("🔄 New event"):
+if st.button("Skip(but I will deduct one point)"):
     st.session_state.target = random.choice(events)
     st.session_state.attempts = 0
+    st.session_state.score -= 1
     st.session_state.message = ""
