@@ -19,17 +19,18 @@ st.title("My boyfriend guesses years")
 st.subheader(f"guess.")
 st.markdown(f"**{event['event']}**")
 
-guess = st.number_input("Your guess (year):", min_value=0, max_value=2100, step=1)
-if st.button("Submit"):
-    st.session_state.attempts += 1
-    if guess != event["year"]:
-         """if st.session_state.attempts == 6:
+   """if st.session_state.attempts == 6:
             st.session_state.message = f"Boo loser. It was {event["year"]}."
             st.session_state.target = random.choice(events)
             st.session_state.attempts = 0
             st.session_state.score -= 1
             st.session_state.message = ""
 """
+
+guess = st.number_input("Your guess (year):", min_value=0, max_value=2100, step=1)
+if st.button("Submit"):
+    st.session_state.attempts += 1
+    if guess != event["year"]:
         gap = abs(event["year"] - guess)
         if gap > 200:
             st.session_state.message = "200+ years off."
