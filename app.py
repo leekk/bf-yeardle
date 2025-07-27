@@ -60,7 +60,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: url("https://images.app.goo.gl/HX4ZB9cZcDEvomfR9");
+        background-image: url("_.jpeg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
