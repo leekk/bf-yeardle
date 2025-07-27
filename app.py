@@ -55,3 +55,18 @@ if st.button("Skip(but I will deduct one point)"):
     st.session_state.attempts = 0
     st.session_state.score -= 1
     st.session_state.message = ""
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-image: url("https://images.app.goo.gl/HX4ZB9cZcDEvomfR9");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
