@@ -32,7 +32,7 @@ if st.button("Submit"):
         gap = abs(event["year"] - guess)
         if gap > 200:
             st.session_state.message = "200+ years off."
-        elif gap > 40
+        elif gap > 40:
             st.session_state.message = "41-200 years off."
         elif gap > 10:
             st.session_state.message = "11-40 years off."
